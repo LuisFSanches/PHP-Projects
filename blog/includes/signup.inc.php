@@ -8,9 +8,25 @@ if (isset($_POST['submit'])) {
   $passwordConfirmation = ($_POST['passwordConfirmation']);
 
   require_once "../Model/User.php";
+  require_once '../validation/UserValidation.php';
+
   $userModel = new User($name, $username, $email, $password);
+  $validateUser = new UserValidation($name, $username, $email, $password, $passwordConfirmation);
+
+  $checkInputs = $validateUser->validateSignUpInputs();
+  $checkPasswords = $validateUser->validatePassword();
   $checkEmail = $userModel->findByEmail();
   $checkUsername = $userModel->findByUsername();
+
+  if ($checkInputs !== 'Success') {
+    header("location: ../signup.php?error=missingvalues");
+    exit();
+  }
+
+  if ($checkPasswords !== 'Success') {
+    header("location: ../signup.php?error=passwordsdontmatch");
+    exit();
+  }
 
   if ($checkEmail) {
     header("location: ../signup.php?error=emailalreadyregistered");
