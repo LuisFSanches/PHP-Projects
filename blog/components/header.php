@@ -14,9 +14,9 @@
     </h1>
     <div class="nav-items">
         <ul>
-          <li><a href="/login_system/">Home</a></li>
-          <li><a href="/login_system/signin.php">Sign in</a></li>
-          <li><a href="/login_system/signup.php">Sign Up</a></li>
+          <li><a href="/blog/">Home</a></li>
+          <li><a href="/blog/signin.php">Sign in</a></li>
+          <li><a href="/blog/signup.php">Sign Up</a></li>
           <li><a href="">New Post</a></li>
         </ul>
       </div>
