@@ -1,0 +1,30 @@
+a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  padding: 0 15px;
+}
+
+a:hover {
+  color: gold;
+}
+
+h1 {
+  font-size: 25px;
+  color: #fff;
+}
+
+.nav-bar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: black;
+}
+
+.nav-items ul{
+  display: flex;
+  margin-right: 20px;
+}
+

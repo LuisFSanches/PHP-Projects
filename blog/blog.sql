@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS blog;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(250) NOT NULL,
+  `username` VARCHAR(250) NOT NULL,
+  `email` VARCHAR(250) NOT NULL,
+  `password` VARCHAR(250) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `title` VARCHAR(250) NOT NULL,
+  `content` VARCHAR(250) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+
+  FOREIGN KEY (user_id) REFERENCES users(id)
+)
