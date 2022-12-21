@@ -13,7 +13,7 @@
   </header>
 
   <section>
-    <h1>Sign In</h1>
+    <h2>Sign In</h2>
     <form action="includes/signin.inc.php" method="post">
       <input type="text" name="username" placeholder="Username / Email">
       <input type="password" name="password" placeholder="password">
@@ -24,12 +24,11 @@
     <?php
       if (isset($_GET["error"])) {
         if ($_GET["error"] == "missingvalues") {
-          echo "<p> Fill in all field! </p>";
+          echo "<p class='error-message'> Invalid username or password! </p>";
         }
         else if ($_GET["error"] == "invalidusernameorpassword") {
-          echo "<p> Invalid username or password</p>";
+          echo "<p class='error-message'> Invalid username or password!</p>";
         }
-
       }
     ?>
   </section>

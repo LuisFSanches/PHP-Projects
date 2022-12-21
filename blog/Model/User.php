@@ -1,7 +1,6 @@
 <?php
   require_once '../Database/Database.php';
   class User {
-
     public function findByEmail($email) {
       $query = 'SELECT * from users where email = :email';
       $stmt = Database::getConn()->prepare($query);
@@ -32,7 +31,6 @@
 
     public function create($name, $username, $email, $password) {
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-      echo $hashed_password;
       $query = 'INSERT INTO users (name, username, email, password)
         VALUES(?, ?, ?, ?)';
 
@@ -56,16 +54,15 @@
       $stmt->execute();
 
       if ($stmt->rowCount() > 0) {
-        echo 'chegou aqui';
+
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($user);
         $hashed_password = $user["password"];
         $checkPassword = password_verify($password, $hashed_password);
 
         if ($checkPassword === false) {
           return null;
         }
-        return $this;
+        return $user;
       }
       return null;
     }

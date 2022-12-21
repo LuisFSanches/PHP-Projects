@@ -16,9 +16,12 @@
     }
 
     $userModel = $userModel->session($username, $password);
-    print_r($userModel);
+    $user = $userModel;
+
     if ($userModel) {
-      $_SESSION["username"] = $username;
+      session_start();
+      $_SESSION['username'] = $username;
+      $_SESSION['id'] = $user['id'];
       header("location: ../index.php");
       exit();
     }

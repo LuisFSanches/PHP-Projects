@@ -15,7 +15,7 @@
     <?php include_once 'components/header.php'; ?>
   </header>
   <section>
-    <h1>Login</h1>
+    
   </section>
   <footer>
     <?php include_once 'components/footer.php'; ?>

@@ -13,13 +13,22 @@
 </head>
 <body>
   <nav class="nav-bar">
-    <h1>
-      My Blog
-    </h1>
+    <?php 
+      if (isset($_SESSION["username"])) {
+        $username = $_SESSION['username'];
+        echo "<h1>
+          $username - Blog
+        </h1>";
+      } else {
+        echo "<h1>Blog</h1>";
+      }
+    ?>
+
     <div class="nav-items">
         <ul>
           <li><a href="/blog/">Home</a></li>
           <?php
+            
             if (isset($_SESSION["username"])) {
               echo "<li><a href=''>New Post</a></li>";
               echo "<li><a href='includes/logout.inc.php'>Log out</a></li>";

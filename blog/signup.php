@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="css/main.css">
   <title>Sign Up</title>
 </head>
-<body class="main" style="background-color: blue;">
+<body class="main">
   <header>
     <?php include_once 'components/header.php'; ?>
   </header>
 
   <section>
-    <h1>Sign Up</h1>
+    <h2>Sign Up</h2>
     <form action="includes/signup.inc.php" method="post" class="form">
       <input type="text" name="name" placeholder="Full name">
       <input type="text" name="email" placeholder="email">
@@ -26,25 +26,25 @@
     <?php
       if (isset($_GET["error"])) {
         if ($_GET["error"] == "missingvalues") {
-          echo "<p> Fill in all field! </p>";
+          echo "<p class='error-message'> Missing values. </p>";
         }
         else if ($_GET["error"] == "invalidemail") {
-          echo "<p> Choose a proper email </p>";
+          echo "<p class='error-message'> Choose a proper email. </p>";
         }
         else if ($_GET["error"] == "invalidusername") {
-          echo "<p> Choose a proper username </p>";
+          echo "<p class='error-message'> Choose a proper username. </p>";
         }
         else if ($_GET["error"] == "passwordsdontmatch") {
-          echo "<p> Password don't match </p>";
+          echo "<p class='error-message'> Password don't match. </p>";
         }
         else if ($_GET["error"] == "emailalreadyregistered") {
-          echo "<p> Email already registered </p>";
+          echo "<p class='error-message'> Email already registered. </p>";
         }
         else if ($_GET["error"] == "usernamealreadyregistered") {
-          echo "<p> Username already registered</p>";
+          echo "<p class='error-message'> Username already registered.</p>";
         }
         else if ($_GET["error"] == "none") {
-          echo "<p> You have signed up!</p>";
+          echo "<p class='error-message'> You have signed up!</p>";
         }
       }
     ?>
