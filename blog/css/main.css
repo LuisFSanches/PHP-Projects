@@ -29,7 +29,7 @@ section {
   align-items: center;
 }
 
-.main input {
+.main input, textarea {
   width: 50%;
   margin-bottom: 20px;
   padding: 10px;
@@ -57,4 +57,37 @@ section {
   font-weight: bold;
   color: red;
   text-align: center;
+}
+
+.posts-section {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 5px;
+  margin: 15px;
+}
+
+.post-card {
+  width: 350px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #75817B;
+  color: #fff;
+  position: relative;
+}
+.post-card h2 {
+  font-size: 25px;
+}
+.post-card p {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.post-card button {
+  width: 40px;
+  background-color: red;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

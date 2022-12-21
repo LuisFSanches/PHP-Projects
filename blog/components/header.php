@@ -30,7 +30,7 @@
           <?php
             
             if (isset($_SESSION["username"])) {
-              echo "<li><a href=''>New Post</a></li>";
+              echo "<li><a href='/blog/newpost.php'>New Post</a></li>";
               echo "<li><a href='includes/logout.inc.php'>Log out</a></li>";
             } else {
               echo "<li><a href='/blog/signin.php'>Sign in</a></li>";

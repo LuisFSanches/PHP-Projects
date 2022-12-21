@@ -1,6 +1,21 @@
 <?php
-  require_once '../Database/Database.php';
+  define('__ROOT__', dirname(dirname(__FILE__)));
+  require_once(__ROOT__.'/Database/Database.php');
   class User {
+    public function findById($id) {
+      $query = 'SELECT * from users where id = :id';
+      $stmt = Database::getConn()->prepare($query);
+      $stmt->bindValue(':id', $id);
+
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+      } else {
+        return null;
+      }
+    }
+
     public function findByEmail($email) {
       $query = 'SELECT * from users where email = :email';
       $stmt = Database::getConn()->prepare($query);
