@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/main.css">
   <title>Sign Up</title>
 </head>
-<body class="main">
+<body class="main" style="background-color: blue;">
   <header>
     <?php include_once 'components/header.php'; ?>
   </header>
@@ -22,8 +22,32 @@
       <input type="password" name="passwordConfirmation" placeholder="password confirmation">
 
       <button type="submit" name="submit">Sign up</button>
-
     </form>
+    <?php
+      if (isset($_GET["error"])) {
+        if ($_GET["error"] == "missingvalues") {
+          echo "<p> Fill in all field! </p>";
+        }
+        else if ($_GET["error"] == "invalidemail") {
+          echo "<p> Choose a proper email </p>";
+        }
+        else if ($_GET["error"] == "invalidusername") {
+          echo "<p> Choose a proper username </p>";
+        }
+        else if ($_GET["error"] == "passwordsdontmatch") {
+          echo "<p> Password don't match </p>";
+        }
+        else if ($_GET["error"] == "emailalreadyregistered") {
+          echo "<p> Email already registered </p>";
+        }
+        else if ($_GET["error"] == "usernamealreadyregistered") {
+          echo "<p> Username already registered</p>";
+        }
+        else if ($_GET["error"] == "none") {
+          echo "<p> You have signed up!</p>";
+        }
+      }
+    ?>
   </section>
 
   <footer>

@@ -1,7 +1,6 @@
 <?php
 
   require_once '../Database/Database.php';
-
   class Post {
     private $title;
     private $user_id;

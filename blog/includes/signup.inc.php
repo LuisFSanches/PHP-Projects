@@ -10,16 +10,28 @@ if (isset($_POST['submit'])) {
   require_once "../Model/User.php";
   require_once '../validation/UserValidation.php';
 
-  $userModel = new User($name, $username, $email, $password);
-  $validateUser = new UserValidation($name, $username, $email, $password, $passwordConfirmation);
+  $userModel = new User();
+  $validateUser = new UserValidation();
 
-  $checkInputs = $validateUser->validateSignUpInputs();
-  $checkPasswords = $validateUser->validatePassword();
-  $checkEmail = $userModel->findByEmail();
-  $checkUsername = $userModel->findByUsername();
+  $checkInputs = $validateUser->validateSignUpInputs($name, $username, $email, $password, $passwordConfirmation);
+  $checkEmailFormat= $validateUser->validateEmail($email);
+  $checkUsernameFormat = $validateUser->validateUsername($username);
+  $checkPasswords = $validateUser->validatePassword($password, $passwordConfirmation);
+  $checkEmail = $userModel->findByEmail($email);
+  $checkUsername = $userModel->findByUsername($username);
 
   if ($checkInputs !== 'Success') {
     header("location: ../signup.php?error=missingvalues");
+    exit();
+  }
+
+  if ($checkEmailFormat !== 'Success') {
+    header("location: ../signup.php?error=invalidemail");
+    exit();
+  }
+
+  if ($checkUsernameFormat !== 'Success') {
+    header("location: ../signup.php?error=invalidusername");
     exit();
   }
 
@@ -38,7 +50,10 @@ if (isset($_POST['submit'])) {
     exit();
   }
 
-  $userModel->create();
+  $userModel->create($name, $username, $email, $password);
+  if ($userModel) {
+    header("location: ../index.php");
+  }
 
 } else {
   header("location: ../signup.php");

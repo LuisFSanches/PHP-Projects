@@ -15,12 +15,23 @@
   <section>
     <h1>Sign In</h1>
     <form action="includes/signin.inc.php" method="post">
-      <input type="text" name="email" placeholder="Username / Email">
-      <input type="text" name="password" placeholder="password">
+      <input type="text" name="username" placeholder="Username / Email">
+      <input type="password" name="password" placeholder="password">
 
       <button type="submit" name="submit">Sign in</button>
 
     </form>
+    <?php
+      if (isset($_GET["error"])) {
+        if ($_GET["error"] == "missingvalues") {
+          echo "<p> Fill in all field! </p>";
+        }
+        else if ($_GET["error"] == "invalidusernameorpassword") {
+          echo "<p> Invalid username or password</p>";
+        }
+
+      }
+    ?>
   </section>
 
   <footer>

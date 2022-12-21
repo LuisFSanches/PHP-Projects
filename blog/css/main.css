@@ -4,16 +4,17 @@
   box-sizing: border-box;
 }
 
+PHP Blog Project
+
+
 .main {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: yellow;
 }
 
-section {
-  height: 50vh;
-}
 .form {
   display: flex;
   flex-direction: column;
