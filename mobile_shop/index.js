@@ -47,4 +47,18 @@ $(document).ready(function() {
       }
     }
   });
+
+  $("#blogs .owl-carousel").owlCarousel({
+    loop: true,
+    nav: false,
+    dots: true,
+    responsive: {
+      O: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+    }
+  });
 });
